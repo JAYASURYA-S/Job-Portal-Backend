@@ -29,5 +29,4 @@ app.use("/jobs", router);
 //running a server
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
-  console.log(`Server is running on PORT ${process.env.MONGO_URI}`);
 });
