@@ -11,7 +11,11 @@ const PORT = process.env.PORT || 6000;
 const app = express();
 
 //use middlewares
-app.use(cors());
+app.use(cors({
+  origin: "https://job-portal-frontend-one-wheat.vercel.app/", // Change to your Vercel frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
