@@ -10,10 +10,12 @@ const DraftJobSchema = mongoose.Schema(
     },
     location: {
       type: [String],
+      default: undefined, // Prevents Mongoose from setting an empty array
     },
     jobType: {
       type: [String],
       enum: ["Internship", "Full Time", "Part Time", "Contract"],
+      default: undefined, 
     },
     salary: {
       min: { type: Number },
