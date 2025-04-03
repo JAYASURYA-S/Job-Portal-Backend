@@ -47,3 +47,21 @@ export const draftJobs = async (req, res) => {
     res.status(500).json({ message: "Server error", error });
   }
 };
+
+// Delete the saved (draft) jobs
+export const deleteDraftJobs = async (req, res) => {
+  const { draftId } = req.params; // Assuming you're passing jobId in the request URL
+
+  try {
+    const deletedJob = await DraftJobModel.findByIdAndDelete(draftId);
+
+    if (!deletedJob) {
+      return res.status(404).json({ message: "Job Draft not found" });
+    }
+
+    res.status(200).json({ message: "Job Draft deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error });
+  }
+};
+
